@@ -1,14 +1,15 @@
 import React from 'react';
 
-const styles = {
-  link: {
-    margin: '2px'
-  }
-}
+const Link = ({ currentFilter, filter, onClick, display }) => {
+  if (currentFilter === filter) return <span>{display}</span>
 
-const Link = (props) => {
   return (
-    <a style={styles.link} href='#'>{props.display}</a>
+    <a onClick={(e) => {
+      e.preventDefault();
+      onClick();
+    }} href='#'>
+    {display}
+    </a>
   )
 }
 
